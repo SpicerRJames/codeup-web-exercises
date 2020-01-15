@@ -1,0 +1,22 @@
+/* Adds a black background to nav bar*/
+.topnav {
+    background-color: #111;
+    overflow: hidden;
+}
+
+/* style the links inside the nav bar */
+.topnav a {
+    float: left;
+    color: darkgray;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+img {
+    float: left;
+}
+
+.body a {
+    margin-right: 5px;
+}
