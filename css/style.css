@@ -1,4 +1,45 @@
 .fancy-header {
     color: purple;
     text-decoration: underline;
+    text-align: center;
+}
+
+h2 {
+    color: #ab1938;
+    text-decoration: underline;
+}
+
+body {
+    /*background-color: lightskyblue;*/
+    background-image: url("../img/canadian-dollar.png");
+    font-family: 'Rock Salt', cursive;
+}
+
+ul {
+    list-style: upper-roman;
+}
+
+ol {
+    list-style: lower-greek;
+
+}
+
+table, tr, td {
+    border-style: outset;
+}
+
+a:link {
+    color: deeppink;
+}
+
+a:visited {
+    color: saddlebrown;
+}
+
+a:active {
+    color: coral;
+}
+
+a:hover {
+    color: rebeccapurple;
 }
