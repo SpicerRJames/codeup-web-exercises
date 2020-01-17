@@ -1,0 +1,13 @@
+.body{
+    position: center;
+}
+
+p {
+    box-sizing: border-box;
+    background-color: grey;
+    color: rebeccapurple;
+    margin-top: 50px;
+    margin-right: 50px;
+    padding: 50px;
+    border: groove blue 10px;
+}
