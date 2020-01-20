@@ -1,0 +1,9 @@
+h1.nav {
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+    float: right;
+    margin-left: 25px;
+}
