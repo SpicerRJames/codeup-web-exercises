@@ -72,7 +72,8 @@ a {
     margin-left: .5em;
 }
 .profile-items {
-
+    list-style: none;
+    padding: 0;
 }
 .profile-entry {
     margin: .5em;
