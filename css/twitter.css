@@ -104,15 +104,17 @@ for.text-right {
     position: relative;
     left: 10px;
     bottom: 5px;
+    top: 15px;
     background-color: #FFFFFF;
 }
 
 .who-to-follow {
-    position: relative;
-    left: 50px;
-    right: 50px;
-    align-content: center;
-
+    position: absolute;
+    top: 455px;
+    left: 1200px;
+    width: 200px;
+    height: 800px;
+    background-color: #FFFFFF;
 }
 
 
