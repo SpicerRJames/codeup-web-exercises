@@ -1,0 +1,31 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 20%) 1fr;
+}
+
+header {
+    grid-area: header;
+}
+section:nth-of-type(1) {
+    grid-area: section-1;
+}
+section:nth-of-type(2) {
+    grid-area: section-2;
+}
+section:nth-of-type(3) {
+    grid-area: section-3;
+}
+section:nth-of-type(4) {
+    grid-area: section-4;
+}
+footer {
+    grid-area: footer;
+}
+
+/*To better space out the three sections and the four rows, we will add some grid gap.*/
+
+/*.wrapper {*/
+/*    !*...*!*/
+/*    grid-row-gap: 7em;*/
+/*    grid-column-gap: 3em;*/
+/*}*/

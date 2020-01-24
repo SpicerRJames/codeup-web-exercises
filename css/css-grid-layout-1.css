@@ -1,0 +1,78 @@
+/** {*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*            "page-top page-top page-top"*/
+/*            "nav-1 body ads"*/
+/*            "nav footer footer ";*/
+/*}*/
+/*main {*/
+/*    background: black;*/
+/*    border: 6px solid black;*/
+/*    width: 500px;*/
+/*    height: 500px;*/
+/*    display: inline-grid;*/
+/*    grid-template-columns: repeat(8, 1fr);*/
+/*    grid-template-rows: repeat(8, 1fr);*/
+/*    grid-gap: 6px;*/
+/*}*/
+
+* {
+    box-sizing: border-box;
+    padding: 1em;
+    margin: 1em;
+}
+body {
+    margin: 0;
+    text-align: center;
+}
+main {
+    /*background: white;*/
+    /*border: 6px solid white;*/
+    width: 1025px;
+    height: 940px;
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 6px;
+    /*background: black; */
+    /*border: 6px solid black; */
+    /*width: 500px;*/
+    /*height: 500px;*/
+    /*display: inline-grid;*/
+    /*grid-template-columns: repeat(8, 1fr);*/
+    /*grid-template-rows: repeat(8, 1fr);*/
+    /*grid-gap: 6px;*/
+    /*grid-template-areas:*/
+    /*            "one two three"*/
+    /*            "four five six"*/
+    /*            "seven eight nine";*/
+}
+main div {
+    /*font-size: 2em;*/
+    /*color: black;*/
+    /*background: grey;*/
+    /*border: 1px solid black; !* thin out border to 1px *!*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#page-top {
+    grid-area: 1 / 1 / 1 / span5;
+    background: yellow;
+}
+.body {
+    grid-area: 5 / 5 / 2 / 2;
+    background: yellow;
+}
+.ads {
+    grid-area: -2 / 5 / 2 / 6;
+    background: yellow;
+}
+#nav-1 {
+    grid-area: 2 / 1 / 6 / 2;
+    background: yellow;
+}
+.footer {
+    grid-area: 5 / 6 / 6 / 2;
+    background: yellow;
+}
