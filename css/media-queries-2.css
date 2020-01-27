@@ -1,0 +1,17 @@
+body {
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+                        "h1 h1 . nav-links nav-links"
+                        " ";
+}
+#nav-links {
+
+}
+#main {
+
+}
+.sub-section {
+
+}
