@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <titl>Warmups</titl></title>
+<!--    <titl>Warmups</titl></title>-->
 
 </head>
     <body>
@@ -40,12 +40,12 @@
                 return (x);
             }
 
-            console.log(displaySeven(7))
+            // console.log(displaySeven(7))
 
             function firstItem(x) {
                 return x[0]
             }
-            console.log(firstItem(["dog", "cat", "fish", "bird", "fox"]));
+            // console.log(firstItem(["dog", "cat", "fish", "bird", "fox"]));
 
             function returnType(x){
                 return typeof x;
@@ -54,8 +54,16 @@
             function squaredDivisibleByThree(num){
                 return (num * num) % 3 === 0;
             }
-            console.log(squaredDivisibleByThree(3));
-            console.log(squaredDivisibleByThree(7));
+            // console.log(squaredDivisibleByThree(3));
+            // console.log(squaredDivisibleByThree(7));
+
+            function isString(x){
+              return (isNaN (x));
+              // return typeof x === "string";
+            }
+
+            console.log(isString(true));
+            console.log(isString("hello"));
         </script>
 
     </body>

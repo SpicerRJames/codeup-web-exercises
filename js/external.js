@@ -49,13 +49,15 @@
 
     alert(classEnrolled);
 
+    /*Product Question*/
+
     var premiumMem = confirm("Are you a premium Member?");
 
-    var productNum = prompt("How many products have you bought?");
+    var productNum = Number(prompt("How many products have you bought?"));
 
     var offerValid = confirm("is offer still valid");
 
-    var productAvilable = premiumMem && productNum && offerValid;
+    var productAvilable = offerValid && (premiumMem || productNum > 2);
 
     alert(productAvilable);
 
