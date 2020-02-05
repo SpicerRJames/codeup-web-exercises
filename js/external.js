@@ -41,21 +41,23 @@
 
     /*Student Question*/
 
-var classTime = confirm("Are you avaliable for this class time");
+    var classTime = confirm("Are you avaliable for this class time");
 
-var classSize = confirm("Does this time work for you?");
+    var classSize = confirm("Does this time work for you?");
 
-var classEnrolled = classSize && classTime;
+    var classEnrolled = classSize && classTime;
 
-alert(classEnrolled);
+    alert(classEnrolled);
 
-var premiumMem = confirm("Are you a premium Member?");
+    var premiumMem = confirm("Are you a premium Member?");
 
-var productNum = prompt("How many products have you bought?");
+    var productNum = prompt("How many products have you bought?");
 
-var productAvilable = premiumMem && productNum
+    var offerValid = confirm("is offer still valid");
 
-alert(productAvilable);
+    var productAvilable = premiumMem && productNum && offerValid;
+
+    alert(productAvilable);
 
 
 
