@@ -22,6 +22,8 @@
  * console.log 'helloMessage' to check your work
  */
 
+var helloMessage = sayHello("Fortune")
+console.log(helloMessage)
 
 // sayHello("Jim");
 // function helloMessage () {
@@ -36,6 +38,8 @@
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
+
+// var myName = "Fortuna"
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
@@ -87,12 +91,10 @@ console.log(calculateTip(1, 2));
  * then display the dollar amount they should tip
  */
 
-var tipPercentage = (prompt("How much was the tip?"));
-var totalBill = (prompt("How much was the bill?"));
-
+var tipPercentage = parseFloat(prompt("How much was the tip?"));
+var totalBill = parseFloat(prompt("How much was the bill?"));
 calculateTip(tipPercentage, totalBill);
-
-alert (tipPercentage * totalBill)
+alert (tipPercentage * totalBill);
 
 /**
  * TODO:
@@ -110,7 +112,7 @@ alert (tipPercentage * totalBill)
  */
 function applyDiscount(originalPrice, discountPercent) {
 
-     return originalPrice - discountPercent * originalPrice;
+     return originalPrice - (discountPercent * originalPrice);
 
 }
-console.log(applyDiscount(100, .2))
+console.log(applyDiscount(100, .2));
