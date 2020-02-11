@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Define a function named isString that takes in any input and returns true if the input provided is a string
+     function isString(input) {
+         return typeof input === "string";
+     }
+// console.log(isString(true));
+
+    // Define a function named notAString that takes in any input and returns true if the input provided is not a string
+
+    function notAString(input){
+         return typeof input !== "string";
+    }
+
+    // console.log(notAString("true"));
+
+    //Define a function named isOdd that takes in a single input. If the input is an odd number or a string containing an odd number, return true. Any other input should return false.
+
+    function isOdd(input) {
+        // return (input % 2 === 1);
+        return parseInt(input, radix: 10) % 2 !== 0;
+    }
+    // console.log(isOdd("2"));
+
+    // /In this challenge, you must verify the equality of two different
+    // given parameters: a and b.
+    //     Both the value and the type of parameters need to be tested in order to have an matching equality. The possible types of the given parameters are:
+    //     Numbers
+    // Strings
+    // Booleans (false or true)
+    // Special values: undefined, null and NaN
+    // What have you learnt so far that will permit you to do two different checks (value and type) with a single statement?
+    //     Implement a function that returns true if the parameters are equal, and false if they are different.
+
+    function verifyEq(a, b) {
+        return a === b;
+    }
+
+    console.log(verifyEq(1, true));
+</script>
+</body>
+</html>
