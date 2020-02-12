@@ -14,3 +14,20 @@
 //     console.log(allCones);
 // }while(cones > allCones);
 
+var allCones = Math.floor(Math.random() * 50) + 50;
+
+do{
+    var cones = Math.floor(Math.random() * 5) + 1;
+
+    if(cones > allCones){
+        var sadMessage = "I cannot sell you anymore " + cones + " I only have " + allCones + " left.";
+        console.log(sadMessage);
+    } else {
+        allCones -= cones;
+        var happyMessage = cones + " cones sold... " + allCones + " cones to go";
+        console.log(happyMessage);
+    }
+
+}while(cones > 0);
+
+console.log("Yay! I sold all my cones!");

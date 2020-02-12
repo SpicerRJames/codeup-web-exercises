@@ -11,9 +11,8 @@
 // console.log(isMultiplicationTable(2));
 
 
-
 // for (let i=0; i<10; i++) {
-//         var ranNumb = Math.floor(Math.random() * 100) + 20;
+//         var ranNumb = Math.floor(Math.random() * 180) + 20;
 //         if(ranNumb % 2 === 0) {
 //             console.log(ranNumb + " Is a even number");
 //         }else{
