@@ -6,13 +6,23 @@
 //if the current element is positive, store in variable
 //return that variable
 
+// function onlyPositiveNumbers(array){
+//     var posNums = [];
+//     array.forEach(function(numPos){
+//         //if the number is positive, push it to posNums
+//         if(numPos >= 0){
+//             posNums.push(numPos);
+//         }
+//     });
+//     return posNums;
+// }
+
 function onlyPositiveNumbers(array){
+    //This will be the empty array that will be used to push the numbers into
     var posNums = [];
+    //This says to loop through each element off the parameter 'array' and put it into 'numPos'
     array.forEach(function(numPos){
-        //if the number is positive, push it to posNums
-        if(numPos >= 0){
-            posNums.push(numPos);
-        }
-    });
-    return posNums;
+    //
+
+    })
 }
