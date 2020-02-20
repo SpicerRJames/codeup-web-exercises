@@ -11,54 +11,49 @@ var map = new mapboxgl.Map({
 var markerOptions = {
     color: "#ff0000",
 };
-var popup = new mapboxgl.Popup()
-    .setLngLat([-98.4866849, 29.4352497])
-    .addTo(map)
-    .setHTML("<p>Hello</p>");
+// var popup = new mapboxgl.Popup()
+//     .setLngLat([-98.4866849, 29.4352497])
+//     .addTo(map)
+//     .setHTML("<p>Hello</p>");
+//
+// var marker = new mapboxgl.Marker(markerOptions)
+//     .setLngLat([-98.4866849, 29.4352497])
+//     .addTo(map)
+//     .setPopup(popup);
 
-var marker = new mapboxgl.Marker(markerOptions)
-    .setLngLat([-98.4866849, 29.4352497])
-    .addTo(map)
-    .setPopup(popup);
-
-
-
-var favFoods = [
-    {
-     name: 'Chopsticks Chinese Restaurant + 4903 Northwest Loop 410, San Antonio, TX 78229',
-     popHTML: "<p>GOOD CHINESE FOOD</p>"
-    },
-    {
-     name: 'Toro Kitchecn + Bar, San Antonio, Tx, 78205',
-     popHTML: "<p>TAPPPPASSS!</p>"
-    },
-    {
-     name: 'Paramour + 1524, 102 9th St #400, San Antonio, TX 78215',
-     popHTML: "<p>Best Bar in Twon!</p>"
-    }
-];
-
-geocode(this.name, mapboxToken).then(function(result){
+geocode('4903 Northwest Loop 410, San Antonio, TX 78229', mapboxToken).then(function(result){
     console.log(result);
-    map.flyTo(result);
     map.setCenter(result);
     map.flyTo({center: result, zoom: 15});
 
 });
 
-console.log(favFoods.name);
+var favFoods = [
+    {
+     location: [-98.4866849, 29.4352497],
+     popHTML: "<p>GOOD CHINESE FOOD</p>"
+    },
+    {
+     location: [-98.4866849, 27.4352497],
+     popHTML: "<p>TAPPPPASSS!</p>"
+    },
+    {
+     location: [-98.4866849, 28.4352497],
+     popHTML: "<p>Best Bar in Twon!</p>"
+    }
+];
 
 favFoods.forEach(function(favFood){
 
-    //create a condition for marker
-    marker
-        //condition should include code that passes gives the element a marker
-    //create a condition for popup
     var popup = new mapboxgl.Popup()
-        .setLngLat([-98.4866849, 29.4352497])
-        .addTo(favFoods)
-        .setHTML("<p>Hello</p>");
-        //condition should contain code that makes a popup
+        .addTo(map)
+        .setHTML(favFood.popHTML);
+
+    var marker = new mapboxgl.Marker(markerOptions)
+        .setLngLat(favFood.location)
+        .addTo(map)
+
+    marker.setPopup(popup).togglePopup();
 });
 
 // var popup = new mapboxgl.Popup()
@@ -78,14 +73,10 @@ favFoods.forEach(function(favFood){
 // });
 
 
-
 // var favFood = {
 //     address: "Chopsticks Chinese Restaurant + 4903 Northwest Loop 410, San Antonio, TX 78229",
 //     popupHTML: "<h1>GOOD CHINESE FOOD</h1>"
 // };
-
-
-
 
 // var favFood = {
 //     address: "Chopsticks Chinese Restaurant + 4903 Northwest Loop 410, San Antonio, TX 78229",
