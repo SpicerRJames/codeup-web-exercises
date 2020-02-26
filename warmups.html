@@ -149,25 +149,36 @@
             // }
             // console.log(getGoldReindeer(reindeerList));
 
+            // function goldDeer(deerArray){
+            //     var bucket = [];
+            //
+            //     deerArray.forEach(function(reindeer){
+            //         if(reindeer.isGold === true){
+            //             bucket.push(reindeer);
+            //         }
+            //     });
+            //     return bucket;
+            // }
+            //
+            //
+            // console.log(goldDeer(reindeerList));
 
 
+            // Write a function that returns a message that says hello to someone by accessing the name property of a passed object. If the passed
+            // argument's name property is anything but a string, or the argument is not an object, return "Hello, my dudes!"
 
-
-
-            function goldDeer(deerArray){
-                var bucket = [];
-
-                deerArray.forEach(function(reindeer){
-                    if(reindeer.isGold === true){
-                        bucket.push(reindeer);
-                    }
-                });
-                return bucket;
+            function helloToObject(input){
+                if (typeof input === 'object' && typeof input.name === 'string'){
+                    return 'hello ' + input.name;
+                } else {
+                    return 'Hello, my dude'
+                }
             }
-
-
-            console.log(goldDeer(reindeerList));
-
+            
+            console.log(helloToObject({name: "Otis"}));
+            console.log(helloToObject({name: {firstName: "Milo", lastName: "Chatran"}}));
+            console.log(helloToObject(7));
+            console.log(helloToObject([1, 2, 3]));
 
         </script>
 

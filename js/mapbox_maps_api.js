@@ -46,8 +46,9 @@ var favFoods = [
 favFoods.forEach(function(favFood){
 
     var popup = new mapboxgl.Popup()
-        .addTo(map)
-        .setHTML(favFood.popHTML);
+        .setHTML(favFood.popHTML)
+        .addTo(map);
+
 
     var marker = new mapboxgl.Marker(markerOptions)
         .setLngLat(favFood.location)
