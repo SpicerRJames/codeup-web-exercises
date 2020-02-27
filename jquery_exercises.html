@@ -10,7 +10,13 @@
 
     <h1 class="fancy-header" id="prac-2">TURTLES</h1>
 
-    <p class="container" id="prac-3">lorem ipsum</p>
+    <p class="container" id="prac-3">
+        A blood clot caricatures the Sierra Nevada Pale Ale living with a bullfrog brew. Furthermore, the unwisely pissed Harpoon gets stinking drunk,
+        and the Christmas Ale about the Heineken organizes a loose freight train. When you see the bullfrog brew toward the Luna Sea ESB, it means that a
+        slyly radioactive Corona dies.<br>
+        Sometimes a St. Pauli Girl of a Busch ruminates, but a Hazed and Infused always carelessly organizes the shot beyond the Hoptoberfest!
+        A Brewers Reserve starts reminiscing about a lost buzz, and a wet lager hides; however, some linguistic Hefeweizen caricatures an ESB.
+    </p>
 
     <ul class="">
         <li>One</li>
@@ -20,10 +26,32 @@
 
 <script src="js/jquery-2.2.4.js"></script>
 <script type="text/javascript">
-    "use strict";
-    $(document).ready(function(){
-        $('.container').css('background-color', 'red')
-    })
+    //"use strict";
+    //$(document).ready(function(){
+        //$('.container').css('background-color', 'red')
+    //})
+$(function() {
+
+
+    $('h1').click(function () {
+        $(this).css("color", "yellow");
+    });
+
+    $('p').dblclick(function () {
+        $(this).css('font-size', '18px');
+    });
+
+    $('li').hover(function() {
+        $(this).css('color', 'red');
+    }, function() {
+        $(this).css('color', 'black');
+    });
+
+
+
+
+});
+
     </script>
 </body>
 </html>
