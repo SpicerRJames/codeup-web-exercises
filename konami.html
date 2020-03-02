@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    // $(document).keyup(function(event){
+    //     console.log(event.keyCode);
+    // });
+
+    //create the string on code for the input keys
+    //create an empty bucket
+    //push the userInput into the bucket for each key pressed
+    //convert the bucket array into a string
+    //split the bucket string and the code string
+    //compare both strings
+
+    // var code = "ArrowUp,ArrowUp,Enter";
+    // var userInput = [];
+    // $(document).keyup(function(enabled) {
+    //     console.log(enabled.key);
+    //     userInput.push(enabled.key);
+    //     if (userInput.toString().indexOf(code) >= 0){
+    //         $(document).off("keydown");
+    //         alert("You have added 30 lives");
+    //     userInput = [];
+    // }
+    //
+
+    // });
+
+
+
+
+
+
+
+
+
+
+
+    var code = ["ArrowUp", "ArrowUp", "Enter"];
+    var userInput = [];
+    var correctCount = 0;
+
+    $(document).keydown(function(e){//e is the event of a keyDown event
+        console.log(e.key);//.key is the element in an event object not a method
+        var currentKeypress = e.key;
+        userInput.push(currentKeypress);
+        for(var i = 0; i < userInput.length; i++){
+            //check if current keypress is equal to the correct keypress in the secret code
+            if(userInput[i] === code[i]){
+                correctCount++;
+                //if they have gotten 3 correct presses, the code is right.
+                if(correctCount === code.length + 1){
+                    console.log(correctCount);
+                    alert("you solved it")
+                }
+            }else{
+                correctCount = 0;
+                userInput = [];
+            }
+        }
+
+    })
+
+</script>
+
+
+</body>
+</html>
