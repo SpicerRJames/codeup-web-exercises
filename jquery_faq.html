@@ -43,6 +43,30 @@
     <dd class="invisible">Death Valley National Park is the largest national park in the lower 48 U.S. states, stretching 5,300 square miles or 3.4 million acres.</dd>
 </dl>
 
+<h3>Yellow Stone</h3>
+<ul>
+    <li>Yellowstone hosts around four million visits each year. More than half of these visits happen during June, July, and August.</li>
+    <li>Approximately 1,000 miles (1,609 km) of backcountry hiking trails</li>
+    <li>More than 1,800 known archeological sites</li>
+    <li>Two threatened species: Canada lynx, grizzly bears</li>
+</ul>
+
+<h3>Arches</h3>
+<ul>
+    <li>Arches National Park comprises 76,519 acres or 119 square miles.</li>
+    <li>The enormous sandstone boulder atop Balanced Rock is presumed to weigh approximately 3,577 tons!</li>
+    <li>Arches was made a national park on November 12, 1971</li>
+    <li>The park has over 2,000 natural stone arches</li>
+</ul>
+
+<h3>Big Bend</h3>
+<ul>
+    <li>Big Bend National Park covers a total area of 801,163 acres</li>
+    <li>The highest elevation found in Big Bend is 7,832 feet on Emory Peak</li>
+    <li>Big Bend was made a national park on June 20, 1935</li>
+    <li>The lowest elevation found in Big Bend is 1,715 feet at the Rio Grande River</li>
+</ul>
+
 <button type="button" id="bttn">Click</button>
 
 <button type="button" id="bttn1">Click 2</button>
@@ -54,9 +78,25 @@
         $('.invisible').toggle();
     });
 
-    $('#bttn2').click(function(){
-        $('.invisible').removeClass().addClass('yellow').toggle().css({'background': 'yellow'});
-    })
+    // $('#bttn2').click(function(){
+    //     $('.invisible').removeClass().addClass('yellow').toggle().css({'background': 'yellow'});
+    // })
+
+    $("#bttn1").click(function(){
+        $('ul').each(function(){
+            $(this).children().last().css('background', 'yellow')
+        });
+    });
+
+    $('h3').click(function(){
+        $('li').css('font-weight', 'bold');
+    });
+
+    $('li').click(function(){
+        $('ul').each(function(){
+            $(this).children().first().css('color', 'blue');
+        });
+    });
 </script>
 
 
