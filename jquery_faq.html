@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>National Parks Jquery</title>
+    <link rel="stylesheet" href="css/jquery-faq.css">
 </head>
 
 <body>
@@ -71,6 +72,30 @@
 
 <button type="button" id="bttn1">Click 2</button>
 
+<div class="row-div">
+    <div class="colum" id="pic1">
+        <img src="img/city.jpeg" height="275" width="183" alt="img/chip.jpg"/>
+        <button type="button" id="bttn-pic1">Swap</button>
+    </div>
+
+    <div class="colum" id="pic2">
+        <img src="img/jar.jpeg" height="275" width="183" alt="img/chip.jpg"/>
+        <button type="button" id="bttn-pic2">Swap</button>
+    </div>
+
+    <div class="colum" id="pic3">
+        <img src="img/tree.jpeg" height="251" width="201" alt="img/chip.jpg"/>
+        <button type="button" id="bttn-pic3">Swap</button>
+    </div>
+</div>
+
+
+<div>
+    <h1>Would you like to sign up for out Newsletter?</h1>
+    <span id="x-bttn">x</span>
+</div>
+
+
 <script>
     // $('.invisible').hide();
 
@@ -88,6 +113,14 @@
         });
     });
 
+    $('ul').hide();
+    $('h3').dblclick(function(){
+        $('ul').show();
+    });
+
+
+
+
     $('h3').click(function(){
         $('li').css('font-weight', 'bold');
     });
@@ -97,6 +130,23 @@
             $(this).children().first().css('color', 'blue');
         });
     });
+
+    $('#bttn-pic1').click(function(){
+        $('#pic1').insertAfter('#pic2');
+    });
+
+    $('#bttn-pic2').click(function(){
+        $('#pic2').insertBefore('#pic1');
+    });
+
+    $('#bttn-pic3').click(function(){
+        $('#pic3').insertBefore('#pic2');
+    });
+
+    $('#x-bttn').click(function(){
+        $('div').hide();
+    })
+
 </script>
 
 
