@@ -1,13 +1,6 @@
 body {
     background-color: #666666;
 }
-#posts {
-    margin-left: 0;
-    padding: 2em;
-    color: white;
-    font-family: 'Special Elite', cursive;
-    width: 400px;
-}
 
 #header{
     background-image: url("../img/trippy-banner.jpg");
@@ -22,9 +15,24 @@ body {
     font-family: 'Gloria Hallelujah', cursive;
 }
 
+#navbarSupportedContent {
+    font-family: 'Special Elite', cursive;
+}
+
 #nav-bar {
     color: white;
 }
+
+#posts {
+    margin-left: 0;
+    padding: 2em;
+    color: white;
+    font-family: 'Special Elite', cursive;
+    width: 400px;
+}
+
+
+
 
 /*#carouselExampleIndicators {*/
 /*    margin-top: 2em;*/
@@ -38,9 +46,7 @@ body {
 /*    padding: 0;*/
 /*}*/
 
-#navbarSupportedContent {
-    font-family: 'Special Elite', cursive;
-}
+
 
 /*.slide-show-render-full .slide-image {*/
 /*    height: 100%;*/

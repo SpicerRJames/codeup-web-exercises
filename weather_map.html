@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<!--call the weather map api-->
+<!--after calling the weather map api, create a for loop that will loop through each element-->
+<style>
+    #map {
+        /* the width and height may be set to any size */
+        width: 50%;
+        height: 700px;
+        margin-left: 25%;
+    }
+</style>
+
+<div class="card-deck">
+    <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" id="hiLows1">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="time1">Card subtitle</h6>
+            <p class="card-text" id="summary1"></p>
+            <p class="card-text" id="humidity1"></p>
+            <p class="card-text" id="windSpeed1"></p>
+            <p class="card-text" id="pressure1"></p>
+        </div>
+    </div>
+
+    <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" id="hiLows2">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="time2">Card subtitle</h6>
+            <p class="card-text" id="summary2"></p>
+            <p class="card-text" id="humidity2"></p>
+            <p class="card-text" id="windSpeed2"></p>
+            <p class="card-text" id="pressure2"></p>
+        </div>
+    </div>
+
+    <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" id="hiLows3">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="time3">Card subtitle</h6>
+            <p class="card-text" id="summary3"></p>
+            <p class="card-text" id="humidity3"></p>
+            <p class="card-text" id="windSpeed3"></p>
+            <p class="card-text" id="pressure3"></p>
+        </div>
+    </div>
+</div>
+
+<div id='map'></div>
+
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+
+    // $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/37.8267,-122.4233").done(function (apiData) {
+    //     console.log(apiData);
+    //     console.log(new Date(apiData.currently.time * 1000));
+    // });
+
+
+
+
+
+
+    var daysWeather = [
+        {
+            w_hiLow: $('#hiLows1'),
+            w_time: $('#time1'),
+            w_summary: $('#summary1'),
+            w_humidity: $('#humidity1'),
+            w_windSpeed: $('#windSpeed1'),
+            w_pressure: $('#pressure1')
+        }, {
+            w_hiLow: $('#hiLows2'),
+            w_time: $('#time2'),
+            w_summary: $('#summary2'),
+            w_humidity: $('#humidity2'),
+            w_windSpeed: $('#windSpeed2'),
+            w_pressure: $('#pressure2')
+        }, {
+            w_hiLow: $('#hiLows3'),
+            w_time: $('#time3'),
+            w_summary: $('#summary3'),
+            w_humidity: $('#humidity3'),
+            w_windSpeed: $('#windSpeed3'),
+            w_pressure: $('#pressure3')
+        },
+    ];
+
+    var firstDay = 0;
+
+    var weatherInfo = function () {
+
+        function timeAndDate (date){
+            let dataDate = new Date(date * 1000).toDateString();
+            return dataDate;
+        }
+
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4243, -98.4911").done(function(data){
+            console.log(data);
+            daysWeather.forEach(function (day) {
+            var dayInfo = data.daily.data;
+            day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
+            day.w_summary.html(dayInfo[firstDay].summary);
+            day.w_windSpeed.html( "Wind Speed: " + dayInfo[firstDay].windSpeed);
+            day.w_humidity.html("Humidity: " + dayInfo[firstDay].humidity);
+            day.w_pressure.html("Pressure: " + dayInfo[firstDay].pressure);
+            day.w_time.html(timeAndDate(dayInfo[firstDay].time));
+            firstDay++
+        });
+        firstDay = 0;
+      });
+    };
+
+weatherInfo();
+
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 10,
+        center: [-98.4916, 29.4252]
+    });
+
+</script>
+
+
+
+
+
+</body>
+</html>
