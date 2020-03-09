@@ -2,19 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map API</title>
+    <title>Weather Map</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet'/>
+<!--    <link href="https://api.mapbox.com/geocoding/v5/mapbox.places/San%20Francisco.json?access_token=pk.eyJ1Ijoic3BpY2VyLXItamFtZXMiLCJhIjoiY2s2dHR0ZXFsMDBxZDNlcDlnc3plbzVqMyJ9.FnpGCvcDDEitt_0D_d6Pfw"/>-->
+<!--    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>-->
 </head>
 <body>
-<!--call the weather map api-->
-<!--after calling the weather map api, create a for loop that will loop through each element-->
+
 <style>
     #map {
         /* the width and height may be set to any size */
         width: 50%;
-        height: 700px;
+        height: 400px;
         margin-left: 25%;
+    }
+
+    .coordinates {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        padding: 5px 10px;
+        margin: 0;
+        font-size: 11px;
+        line-height: 18px;
+        border-radius: 3px;
+        display: none;
     }
 </style>
 
@@ -54,23 +69,15 @@
 </div>
 
 <div id='map'></div>
-
+<pre id="coordinates" class="coordinates"></pre>
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
 <script src="js/keys.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
-
-    // $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/"+ darkSkyKey + "/37.8267,-122.4233").done(function (apiData) {
-    //     console.log(apiData);
-    //     console.log(new Date(apiData.currently.time * 1000));
-    // });
-
-
-
-
-
-
-    var daysWeather = [
+    "use strict";
+//------------Makes the objects that will be used in the divs---------------
+   var daysWeather = [
         {
             w_hiLow: $('#hiLows1'),
             w_time: $('#time1'),
@@ -86,16 +93,64 @@
             w_windSpeed: $('#windSpeed2'),
             w_pressure: $('#pressure2')
         }, {
-            w_hiLow: $('#hiLows3'),
-            w_time: $('#time3'),
-            w_summary: $('#summary3'),
-            w_humidity: $('#humidity3'),
-            w_windSpeed: $('#windSpeed3'),
-            w_pressure: $('#pressure3')
+           w_hiLow: $('#hiLows3'),
+           w_time: $('#time3'),
+           w_summary: $('#summary3'),
+           w_humidity: $('#humidity3'),
+           w_windSpeed: $('#windSpeed3'),
+           w_pressure: $('#pressure3')
+       }
+       ];
+    var icons = [
+        {
+            type: "clear-day",
+            icon: "",
         },
+        {
+            type: "clear-night",
+            icon: "",
+        },
+        {
+            type: "rain",
+            icon: "",
+        },
+        {
+            type: "snow",
+            icon: "",
+        },
+        {
+            type: "sleet",
+            icon: "",
+        },
+        {
+            type: "wind",
+            icon: "",
+        },
+        {
+            type: "fog",
+            icon: "",
+        },
+        {
+            type: "cloudy",
+            icon: "",
+        },
+        {
+            type: "partly-cloudy-night",
+            icon: "",
+        },
+        {
+            type: "partly-cloudy-night",
+            icon: "",
+        }
     ];
 
-    var firstDay = 0;
+
+//-------------------------------End of the objects-----------------------------------------
+
+//-----------------------This is the functionality for the dates to update--------------------
+
+
+    var firstDay = 0; //variable that starts the counter to update the divs
 
     var weatherInfo = function () {
 
@@ -104,25 +159,45 @@
             return dataDate;
         }
 
+        switch(expression) {
+            case 'clear-day':
+                // code block
+                break;
+            case y:
+                // code block
+                break;
+            default:
+            // code block
+        }
+
+
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4243, -98.4911").done(function(data){
-            console.log(data);
+            // console.log(data);
             daysWeather.forEach(function (day) {
-            var dayInfo = data.daily.data;
-            day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
-            day.w_summary.html(dayInfo[firstDay].summary);
-            day.w_windSpeed.html( "Wind Speed: " + dayInfo[firstDay].windSpeed);
-            day.w_humidity.html("Humidity: " + dayInfo[firstDay].humidity);
-            day.w_pressure.html("Pressure: " + dayInfo[firstDay].pressure);
-            day.w_time.html(timeAndDate(dayInfo[firstDay].time));
-            firstDay++
+                var dayInfo = data.daily.data;
+                day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
+                day.w_summary.html(dayInfo[firstDay].summary);
+                day.w_windSpeed.html( "Wind Speed: " + dayInfo[firstDay].windSpeed);
+                day.w_humidity.html("Humidity: " + dayInfo[firstDay].humidity);
+                day.w_pressure.html("Pressure: " + dayInfo[firstDay].pressure);
+                day.w_time.html(timeAndDate(dayInfo[firstDay].time));
+                firstDay++
+            });
+            firstDay = 0;
         });
-        firstDay = 0;
-      });
     };
 
-weatherInfo();
+    weatherInfo();
+
+
+
+//---------------------End of starting functionality------------------------------\\
+
+//------start of the mapbox function-----------------------\\
+
 
     mapboxgl.accessToken = mapboxToken;
+    var coord = document.getElementById('coordinates');
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -130,11 +205,88 @@ weatherInfo();
         center: [-98.4916, 29.4252]
     });
 
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
+
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coord.style.display = 'block';
+        coord.innerHTML = 'Longitude: ' + lngLat.lng + 'Latitude: ' + lngLat.lat;
+    }
+
+    // console.log(marker.getLngLat());
+    marker.on('dragend', function(e){
+        console.log(e);
+        let ll = marker.getLngLat();
+        console.log(ll);
+        let long = ll.lng;
+        let latt = ll.lat;
+        // console.log(long);
+        // console.log(latt);
+
+        function timeAndDate (date){
+            let dataDate = new Date(date * 1000).toDateString();
+            return dataDate;
+        }
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latt + ", " + long).done(function (data) {
+            console.log(data);
+            daysWeather.forEach(function (day) {
+                var dayInfo = data.daily.data;
+                day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
+                day.w_summary.html(dayInfo[firstDay].summary);
+                day.w_windSpeed.html( "Wind Speed: " + dayInfo[firstDay].windSpeed);
+                day.w_humidity.html("Humidity: " + dayInfo[firstDay].humidity);
+                day.w_pressure.html("Pressure: " + dayInfo[firstDay].pressure);
+                day.w_time.html(timeAndDate(dayInfo[firstDay].time));
+                firstDay++
+
+            });
+            firstDay = 0;
+        });
+    });
+onDragEnd();
+
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        });
+
+        map.addControl(geocoder);
+
+        geocoder.on('result', function (results) {
+            console.log(results);
+            var long = results.result.geometry.coordinates[0];
+            var latt = results.result.geometry.coordinates[1];
+
+            console.log(long);
+            console.log(latt);
+            function timeAndDate (date){
+                let dataDate = new Date(date * 1000).toDateString();
+                return dataDate;
+            }
+            $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/" + latt + ", " + long).done(function (data) {
+                console.log(data);
+                daysWeather.forEach(function (day) {
+                    var dayInfo = data.daily.data;
+                    day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
+                    day.w_summary.html(dayInfo[firstDay].summary);
+                    day.w_windSpeed.html( "Wind Speed: " + dayInfo[firstDay].windSpeed);
+                    day.w_humidity.html("Humidity: " + dayInfo[firstDay].humidity);
+                    day.w_pressure.html("Pressure: " + dayInfo[firstDay].pressure);
+                    day.w_time.html(timeAndDate(dayInfo[firstDay].time));
+                    firstDay++
+
+
+                });
+                firstDay = 0;
+            });
+        });
+
+
+
 </script>
-
-
-
-
-
 </body>
 </html>
