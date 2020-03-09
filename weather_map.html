@@ -58,6 +58,7 @@
 
     <div class="card col-4" style="width: 18rem;">
         <div class="card-body">
+            <i></i>
             <h5 class="card-title" id="hiLows3">Card title</h5>
             <h6 class="card-subtitle mb-2 text-muted" id="time3">Card subtitle</h6>
             <p class="card-text" id="summary3"></p>
@@ -104,44 +105,41 @@
     var icons = [
         {
             type: "clear-day",
-            icon: "",
+            icon: "src='icons/029-sunrise.png'"
         },
         {
             type: "clear-night",
-            icon: "",
+            icon: "src='icons/055-night.png'",
         },
         {
             type: "rain",
-            icon: "",
+            icon: "src='icons/002-rain.png'",
         },
         {
             type: "snow",
-            icon: "",
+            icon: "src='icons/033-snow.png'",
         },
         {
             type: "sleet",
-            icon: "",
+            icon: "src='icons/033-snow.png'",
         },
         {
             type: "wind",
-            icon: "",
+            icon: "src='icons/017-wind.png'",
         },
         {
             type: "fog",
-            icon: "",
+            icon: "src='icons/023-STRATUS.png'",
         },
         {
             type: "cloudy",
-            icon: "",
+            icon: "src='icons/013-cloudy.png'",
         },
         {
             type: "partly-cloudy-night",
-            icon: "",
+            icon: "src='icons/055-night.png'",
         },
-        {
-            type: "partly-cloudy-night",
-            icon: "",
-        }
+
     ];
 
 
@@ -154,25 +152,98 @@
 
     var weatherInfo = function () {
 
+        function iconPull(iconName) {
+            var output = "";
+            switch (iconName) {
+                case 'clear-day':
+                    output = "wi-forecast-io-clear-day";
+                    break;
+                case 'clear-night':
+                    output = "wi-forecast-io-clear-night";
+                    break;
+                case  'rain':
+                    output = "wi-forecast-io-rain";
+                    break;
+                case  'snow':
+                    output = "wi-forecast-io-snow text-warning";
+                    break;
+                case 'sleet':
+                    output = "wi-forecast-io-sleet  text-danger";
+                    break;
+                case 'strong-wind':
+                    output = "wi-forecast-io-wind  text-danger";
+                    break;
+                case 'fog':
+                    output = "wi-forecast-io-fog text-warning";
+                    break;
+                case 'cloudy':
+                    output = "wi-forecast-io-cloudy";
+                    break;
+                case 'day-cloudy':
+                    output = "wi-forecast-io-partly-cloudy-day";
+                    break;
+                case 'partly-cloudy-day':
+                    output = "wi-forecast-io-partly-cloudy-day";
+                    break;
+                case 'night-cloudy':
+                    output = "wi-forecast-io-partly-cloudy-night";
+                    break;
+                case 'hail':
+                    output = "wi-forecast-io-hail text-danger";
+                    break;
+                case 'thunderstorm':
+                    output = "wi-forecast-io-thunderstorm text-danger";
+                    break;
+                case 'tornado':
+                    output = "wi-forecast-io-tornado text-danger";
+                    break;
+                case 'default':
+                    output = "d-none";
+                    break;
+            }
+            return "<i class=\"wi " + output + "\"></i>";
+        }
+
         function timeAndDate (date){
             let dataDate = new Date(date * 1000).toDateString();
             return dataDate;
         }
 
-        switch(expression) {
-            case 'clear-day':
-                // code block
-                break;
-            case y:
-                // code block
-                break;
-            default:
-            // code block
-        }
+        // switch(icons) {
+        //     case daysWeather = "cloudy":
+        //         display.src='icons/013-cloudy.png';
+        //         break;
+        //     case daysWeather = "snow":
+        //         display.src="icons/033-snow.png";
+        //         break;
+        //     case daysWeather = "fog":
+        //         display.src="icons/023-STRATUS.png";
+        //         break;
+        //     case daysWeather = "partly-cloudy-night":
+        //         display.src="icons/055-night.png";
+        //         break;
+        //     case daysWeather = "wind":
+        //         display.src="icons/017-wind.png";
+        //         break;
+        //     case daysWeather = "clear-day":
+        //         display.src="icons/029-sunrise.png";
+        //         break;
+        //     case daysWeather = "clear-night":
+        //         display.src="icons/055-night.png";
+        //         break;
+        //     case daysWeather = "sleet":
+        //         display.src="icons/033-snow.png";
+        //         break;
+        //     case daysWeather = "rain":
+        //         display.src="icons/002-rain.png";
+        //         break;
+        //     default:
+        //     // code block
+        // }
 
 
         $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkSkyKey + "/29.4243, -98.4911").done(function(data){
-            // console.log(data);
+            console.log(data);
             daysWeather.forEach(function (day) {
                 var dayInfo = data.daily.data;
                 day.w_hiLow.html(dayInfo[firstDay].temperatureHigh + '/' + dayInfo[firstDay].temperatureLow);
