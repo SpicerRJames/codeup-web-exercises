@@ -156,46 +156,37 @@
             var output = "";
             switch (iconName) {
                 case 'clear-day':
-                    output = "wi-forecast-io-clear-day";
+                    output = 'icons/029-sunrise.png';
                     break;
                 case 'clear-night':
-                    output = "wi-forecast-io-clear-night";
+                    output = 'icons/055-night.png';
                     break;
                 case  'rain':
-                    output = "wi-forecast-io-rain";
+                    output = 'icons/002-rain.png';
                     break;
                 case  'snow':
-                    output = "wi-forecast-io-snow text-warning";
+                    output = 'icons/033-snow.png';
                     break;
                 case 'sleet':
-                    output = "wi-forecast-io-sleet  text-danger";
+                    output = 'icons/033-snow.png';
                     break;
                 case 'strong-wind':
-                    output = "wi-forecast-io-wind  text-danger";
+                    output = 'icons/017-wind.png';
                     break;
                 case 'fog':
-                    output = "wi-forecast-io-fog text-warning";
+                    output = 'icons/023-STRATUS.png';
                     break;
                 case 'cloudy':
-                    output = "wi-forecast-io-cloudy";
+                    output = 'icons/013-cloudy.png';
                     break;
                 case 'day-cloudy':
-                    output = "wi-forecast-io-partly-cloudy-day";
+                    output = 'icons/013-cloudy.png';
                     break;
                 case 'partly-cloudy-day':
-                    output = "wi-forecast-io-partly-cloudy-day";
+                    output = 'icons/013-cloudy.png';
                     break;
                 case 'night-cloudy':
-                    output = "wi-forecast-io-partly-cloudy-night";
-                    break;
-                case 'hail':
-                    output = "wi-forecast-io-hail text-danger";
-                    break;
-                case 'thunderstorm':
-                    output = "wi-forecast-io-thunderstorm text-danger";
-                    break;
-                case 'tornado':
-                    output = "wi-forecast-io-tornado text-danger";
+                    output = 'icons/055-night.png';
                     break;
                 case 'default':
                     output = "d-none";
@@ -203,7 +194,7 @@
             }
             return "<i class=\"wi " + output + "\"></i>";
         }
-
+iconPull();
         function timeAndDate (date){
             let dataDate = new Date(date * 1000).toDateString();
             return dataDate;
