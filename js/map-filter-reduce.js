@@ -53,7 +53,7 @@ $(document).ready(function() {
     console.log(userEmail);
 
     let yearsExperience = users.reduce((total, user) => total + user.yearsOfExperience, 0);
-    console.log(yearsExperience);
+    console.log((yearsExperience/users.length) + ' years');
 
     // let longestEmail = users.reduce(total => total.email.length < "");
 
